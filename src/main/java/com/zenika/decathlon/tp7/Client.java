@@ -1,10 +1,13 @@
 package com.zenika.decathlon.tp7;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 public class Client {
 	public final String nom;
 	public final String prenom;
+	private Collection<Compte> comptes = new ArrayList<>();
 	public Client(String nom, String prenom) {
 		super();
 		this.nom = nom;
@@ -35,4 +38,15 @@ public class Client {
 		builder.append("]");
 		return builder.toString();
 	}
+	public boolean contains(Object o) {
+		return comptes.contains(o);
+	}
+	public boolean add(Compte e) {
+		return comptes.add(e);
+	}
+	public boolean remove(Object o) {
+		return comptes.remove(o);
+	}
+	
+	
 }
