@@ -1,13 +1,13 @@
 package com.zenika.decathlon.tp7;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 public class Client {
 	public final String nom;
 	public final String prenom;
-	private Collection<Compte> comptes = new ArrayList<>();
+	private List<Compte> comptes = new ArrayList<>();
 	public Client(String nom, String prenom) {
 		super();
 		this.nom = nom;
@@ -48,5 +48,7 @@ public class Client {
 		return comptes.remove(o);
 	}
 	
-	
+	public List<Compte> getComptes() {
+		return comptes;
+	}
 }
