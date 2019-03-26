@@ -33,4 +33,13 @@ public class ReleveTest {
 		Assertions.assertThat(new ReleveBuilder(Locale.FRANCE).releve(me))
 			.isEqualTo(samples.getProperty("releve_avec_compte_courant_et_compte_epargne"));
 	}
+	
+	@Test
+	public void je_peux_afficher_le_releve_en_anglais_avec_deux_comptes() {
+		Client me = TestUtils.client();
+		me.add(TestUtils.compte_courant(me));
+		me.add(TestUtils.compte_epargne(me));
+		Assertions.assertThat(new ReleveBuilder(Locale.ENGLISH).releve(me))
+			.isEqualTo(samples.getProperty("releve_avec_compte_courant_et_compte_epargne_en_anglais"));
+	}
 }
