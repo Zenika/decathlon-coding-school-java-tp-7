@@ -1,0 +1,11 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="releve_avec_un_compte_courant"><![CDATA[Titulaire : Nicolas Delsaux
+Compte courant : 10 €]]></entry>
+    <entry key="releve_avec_compte_courant_et_compte_epargne"><![CDATA[Titulaire : Nicolas Delsaux
+Compte épargne : 2000 €
+Compte courant : 10 €]]></entry>
+    <entry key="releve_avec_compte_courant_et_compte_epargne_en_anglais"><![CDATA[Holder: Nicolas Delsaux
+Savings Account: 2000 €
+Checking Account: 10 €]]></entry>
+</properties>
