@@ -1,6 +1,8 @@
 package com.zenika.decathlon.tp7;
 
 import java.math.BigDecimal;
+import java.util.Currency;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -13,6 +15,7 @@ public abstract class AbstractCompte implements Compte {
 		this.titulaire = titulaire;
 	}
 	private BigDecimal solde;
+	private final Currency currency = Currency.getInstance(Locale.FRANCE);
 	@Override
 	public Client getTitulaire() {
 		return titulaire;
@@ -52,5 +55,9 @@ public abstract class AbstractCompte implements Compte {
 		builder.append(solde);
 		builder.append("]");
 		return builder.toString();
+	}
+	
+	public Currency getCurrency() {
+		return currency;
 	}
 }
