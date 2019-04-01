@@ -1,0 +1,8 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>Requête d'initialisation de la base de données</comment>
+    <entry key="init"><![CDATA[
+DROP TABLE IF EXISTS CLIENTS;
+CREATE TABLE CLIENTS(ID VARCHAR, NOM VARCHAR, PRENOM VARCHAR);
+]]></entry>
+</properties>
