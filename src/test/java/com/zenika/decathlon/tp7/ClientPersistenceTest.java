@@ -29,7 +29,7 @@ class ClientPersistenceTest {
 	    clientPersistence.start();
 	}
 	
-	@AfterAll public void stopDatabase() throws SQLException {
+	@AfterAll public static void stopDatabase() throws SQLException {
 		connection.close();
 	}
 

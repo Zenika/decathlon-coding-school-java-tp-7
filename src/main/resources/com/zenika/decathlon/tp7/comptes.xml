@@ -1,0 +1,12 @@
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="init"><![CDATA[
+DROP TABLE IF EXISTS COMPTES;
+create table COMPTES (NUMERO INT, LIBELLE VARCHAR, SOLDE DECIMAL, TYPE CHAR);
+insert into COMPTES (NUMERO, LIBELLE, SOLDE, TYPE) values (1, 'Compte Courant', 10000.75, 'C');
+]]></entry>
+
+	<entry key="selectAll"><![CDATA[
+SELECT * FROM COMPTES;
+]]></entry>
+</properties>

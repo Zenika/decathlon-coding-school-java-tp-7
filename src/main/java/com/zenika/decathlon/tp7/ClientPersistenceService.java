@@ -2,6 +2,7 @@ package com.zenika.decathlon.tp7;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.InvalidPropertiesFormatException;
@@ -20,12 +21,21 @@ public class ClientPersistenceService {
 
 	public void start() throws IOException, SQLException {
 		loadStatements();
-		Statement init = connection.createStatement();
-		init.executeUpdate(statements.getProperty("init"));
+		try (Statement init = connection.createStatement()) {
+			init.executeUpdate(statements.getProperty("init"));
+		}
 	}
 
 	private void loadStatements() throws IOException {
 		statements = new Properties();
 		statements.loadFromXML(getClass().getResourceAsStream("statements.xml"));
+	}
+
+	public void create(Client toTest) throws SQLException {
+		try (PreparedStatement createStatement = connection.prepareStatement(statements.getProperty("create"))){
+			createStatement.setString(1, toTest.nom);
+			createStatement.setString(2, toTest.prenom);
+			createStatement.executeUpdate();
+		}
 	}
 }

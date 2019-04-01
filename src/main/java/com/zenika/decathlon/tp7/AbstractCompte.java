@@ -8,11 +8,17 @@ import java.util.UUID;
 
 public abstract class AbstractCompte implements Compte {
 	private Client titulaire;
-	private String identifiant;
+	private int numeroCompte;
+	private String libelle;
 	public AbstractCompte(Client titulaire) {
 		super();
-		identifiant = UUID.randomUUID().toString();
 		this.titulaire = titulaire;
+	}
+	public AbstractCompte(Client client, int numeroCompte, String libelle, BigDecimal solde) {
+		this(client);
+		this.numeroCompte = numeroCompte;
+		this.libelle = libelle;
+		this.solde = solde;
 	}
 	private BigDecimal solde;
 	private final Currency currency = Currency.getInstance(Locale.FRANCE);
@@ -30,7 +36,7 @@ public abstract class AbstractCompte implements Compte {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(identifiant, titulaire);
+		return Objects.hash(numeroCompte, titulaire);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -41,14 +47,14 @@ public abstract class AbstractCompte implements Compte {
 		if (getClass() != obj.getClass())
 			return false;
 		AbstractCompte other = (AbstractCompte) obj;
-		return Objects.equals(identifiant, other.identifiant) && Objects.equals(titulaire, other.titulaire);
+		return Objects.equals(numeroCompte, other.numeroCompte) && Objects.equals(titulaire, other.titulaire) && Objects.equals(solde, other.solde);
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(getClass().getSimpleName());
-		builder.append(" [identifiant=");
-		builder.append(identifiant);
+		builder.append(" [numero=");
+		builder.append(numeroCompte);
 		builder.append(", titulaire=");
 		builder.append(titulaire);
 		builder.append(", solde=");
